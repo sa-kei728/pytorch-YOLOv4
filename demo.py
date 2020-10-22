@@ -84,6 +84,8 @@ def detect_cv2_camera(cfgfile, weightfile):
 
     while True:
         ret, img = cap.read()
+        if ret == False:
+            break
         sized = cv2.resize(img, (m.width, m.height))
         sized = cv2.cvtColor(sized, cv2.COLOR_BGR2RGB)
 
@@ -142,7 +144,6 @@ def get_args():
                         default='./checkpoints/Yolov4_epoch1.pth',
                         help='path of trained model.', dest='weightfile')
     parser.add_argument('-imgfile', type=str,
-                        default='./data/mscoco2017/train2017/190109_180343_00154162.jpg',
                         help='path of your image file.', dest='imgfile')
     args = parser.parse_args()
 

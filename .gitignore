@@ -18,3 +18,6 @@ log
 *.jpg
 *.json
 data/outcome
+
+install_opencv/opencv
+install_opencv/swapfile
